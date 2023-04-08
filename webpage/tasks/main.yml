@@ -1,4 +1,4 @@
-- name: Install httpd server
+- name: Install httpd package/application
     package:
      name: "{{ packageName }}"
      state: present
