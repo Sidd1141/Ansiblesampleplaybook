@@ -1,0 +1,3 @@
+  - packageName: "httpd"
+  - webPage: "index.html"
+  - documentDir: "/var/www/sm"
