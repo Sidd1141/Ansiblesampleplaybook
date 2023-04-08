@@ -1,0 +1,9 @@
+- name:  To host webpage using httpd 
+
+  hosts: localhost
+
+  become: true
+
+  roles:
+  - name: role for webpage
+    role: webpage
