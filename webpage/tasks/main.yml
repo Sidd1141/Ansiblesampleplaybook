@@ -1,0 +1,29 @@
+- name: Install httpd server
+    package:
+     name: "{{ packageName }}"
+     state: present
+
+  - name: creating file directory
+    file:
+     state: directory
+     path: "{{ documentDir }}"
+
+  - name: printing debug msg
+    debug:
+      msg: "copy webpage in next task"
+
+  - name: copy root dir
+    copy:
+      dest: "/etc/httpd/conf.d/my.conf"
+      content: "documentroot {{ documentDir }}"
+
+  - name: copy webpage
+    copy:
+      src: "{{ webPage }}"
+      dest: "{{ documentDir }}"
+
+  - name: to start httpd service
+    service:
+      name: "httpd"
+      state: reloaded
+      enabled: true
